@@ -19,6 +19,15 @@
                             <input type="file" class="form-control form-control-sm" name="project_image" id="project_image">
                         </div>
                         <div class="col-12">
+                            <label for="" class="control-label my-2">Categoria del progetto</label>
+                            <select name="category_id" id="" class="form-select" required>
+                                <option value="">Scegli una categoria</option>
+                                @foreach($categories as $category)
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-12">
                             <label for="" class="control-label my-2">Sommario progetto</label>
                             <textarea name="summary" id="" cols="30" rows="10" class="form-control form-control-sm"></textarea>
                         </div>

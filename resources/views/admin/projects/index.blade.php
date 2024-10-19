@@ -14,6 +14,7 @@
                     <thead>
                         <tr>
                             <th>Nome</th>
+                            <th>Categoria</th>
                             <th>Descrizione</th>
                         </tr>
                     </thead>
@@ -21,6 +22,7 @@
                         @foreach ($project as $project)
                             <tr>
                                 <td>{{ $project->name }}</td>
+                                <td>{{ $project->category ? $project->category->name : 'Nessuna Categoria' }}</td>
                                 <td>{{ $project->summary }}</td>
                                     <div class="d-flex">
                                     <td>

@@ -7,6 +7,7 @@
                 <h2 class="fw-bolder">{{ $project->name }}</h2>
                 <p><strong>Descrizione del progetto</strong></p>
                 <p>{{ $project->summary }}</p>
+                <p>{{ $project->category ? $project->category->name : 'Nessuna Categoria' }}</p>
                 <img class="cover-image" src="{{ asset('./storage/' . $project->project_image) }}" alt="{{ $project->name}}">
             </div>
         </div>

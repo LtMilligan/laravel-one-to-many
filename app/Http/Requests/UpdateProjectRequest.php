@@ -3,6 +3,7 @@
 namespace  App\Http\Requests;
 
 use  Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateProjectRequest extends  FormRequest
 {
@@ -25,7 +26,9 @@ class UpdateProjectRequest extends  FormRequest
     {
         return [
             'name' => 'required|max:200',
-            'summary' => 'nullable|string'
+            'summary' => 'nullable|string',
+            'project_image' => 'nullable|image|max:4096',
+            'category_id' => ['nullable', Rule::exists('categories', 'id')],
         ];
     }
 
@@ -33,7 +36,8 @@ class UpdateProjectRequest extends  FormRequest
     {
         return[
             'name.require' => 'Il nome del progetto  è obbligatorio.',
-            'name.max' => 'Il nome del progetto non può superare i 200 caratteri'
+            'name.max' => 'Il nome del progetto non può superare i 200 caratteri',
+            'category_id.exist' => 'La categoria non esiste',
         ];
     }
 }
